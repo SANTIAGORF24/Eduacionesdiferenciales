@@ -11,6 +11,7 @@ import { Resultados } from "@/components/Resultados/Resultados";
 import { Sliderpreguntas } from "@/components/Slider/Sliderpreguntas";
 import Footer from "@/components/Footer/Footer";
 import { Mathlan } from "@/components/Matlab/Mathlan";
+import SnakeGame from "@/components/Gameone/SnakeGame";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Tables />
       <TemperatureGraph />
       <Ecuaciones />
+      <SnakeGame />
       <Sliderpreguntas />
       <Resultados />
       <Mathlan />
