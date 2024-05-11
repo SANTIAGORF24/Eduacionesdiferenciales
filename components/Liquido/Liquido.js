@@ -4,7 +4,7 @@ import { Cinem } from "../Cinem/Cinem";
 
 export function Liquido() {
   return (
-    <div className="flex flex-col justify-center items-center h-full">
+    <div className="flex flex-col justify-center items-center h-full bg-white">
       <div className="w-4/6">
         <div className="flex flex-col">
           <Tabs

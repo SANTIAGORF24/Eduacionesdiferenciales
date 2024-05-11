@@ -5,7 +5,7 @@ import { Divider } from "@nextui-org/react";
 export function Banner() {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center bg-white">
         <div className="flex flex-col md:flex-row bg-white justify-center items-center w-full md:w-4/5 space-y-5 md:space-y-0 md:space-x-20 py-10 md:py-20">
           <div id="inicio">
             <Image
