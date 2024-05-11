@@ -58,7 +58,7 @@ const Ecuaciones = () => {
               avanza. Este fenomeno puede interpretarse como una característica
               del proceso de enfriamiento de la gelatina líquida debido al
               contacto con el ambiente, donde la sustancia tiende a equilibrarse
-              termicamente con su entorno a una velocidad decreciente.
+              termicamente con su entorno a una velocidad decrecientes.
               <br />
               <br />
             </p>
