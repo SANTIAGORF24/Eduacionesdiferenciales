@@ -18,26 +18,25 @@ const Ecuaciones = () => {
         <div className="text-center mb-8 sm:mb-0">
           <h2 className="text-2xl font-bold mb-4">ECUACION DIFERENCIAL</h2>
           <div className=" items-center justify-center mb-4">
-            <BlockMath math="\\frac{dT}{dt} = k(T - T\_m)" />
+            <BlockMath math="\\frac{dT}{dt} = k(T - T_m)" />
             <Infobot />
           </div>
           <ol className="list-none p-0">
             <li className="mb-4">
               <strong>Ley de enfriamiento:</strong>
               <p>
-                Donde: <BlockMath math="T\_m = 20.3" />
+                Donde: <BlockMath math="T_m = 20.3" />
               </p>
               <p>
                 Remplazamos: <BlockMath math="\\frac{dT}{dt} = k(T - 20.3)" />
               </p>
               <p className="font-bold mb-4">Solucion a la ecuacion:</p>
-              <BlockMath math="\\int \\frac{dT}{T-20.3} = \\int k dt" />
+              <BlockMath math="\\int \\frac{dT}{T-20.3} dt = \\int k dt" />
               <BlockMath math="\\ln|T-20.3| = kt + c" />
               <BlockMath math="T-20.3 = e^{kt} \\cdot e^c" />
               <BlockMath math="T(t) = ce^{kt} + 20.3" />
               <p className="font-bold mb-4">
-                {" "}
-                Ecuación temperatura respecto al tiempo T(t):{" "}
+                Ecuación temperatura respecto al tiempo T(t):
               </p>
               <BlockMath math="T(t) = 25.6e^{-0.016t} + 20.3" />
             </li>

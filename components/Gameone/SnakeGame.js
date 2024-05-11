@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SnakeGame = () => {
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [gameStarted, setGameStarted] = useState(false);
   const [snake, setSnake] = useState([{ x: 10, y: 10 }]);
   const [food, setFood] = useState({ x: 15, y: 15 });
@@ -13,7 +14,26 @@ const SnakeGame = () => {
   const [eatenCount, setEatenCount] = useState(0);
   const gridSize = 20; // Tamaño del mapa
   const cellSize = 30; // Tamaño de cada celda
-  const numAdditionalCircles = 10; // Número de círculos adicionales
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      setContainerSize({
+        width: Math.min(gridSize * cellSize, window.innerWidth - 32),
+        height: Math.min(gridSize * cellSize, window.innerHeight - 32),
+      });
+    };
+
+    // Update dimensions on mount
+    updateDimensions();
+
+    // Update dimensions on window resize
+    window.addEventListener("resize", updateDimensions);
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
+  }, [gridSize, cellSize]);
 
   const generateObstacles = () => {
     const newObstacles = [];
@@ -193,8 +213,8 @@ const SnakeGame = () => {
           <div
             className="relative mb-4"
             style={{
-              width: Math.min(gridSize * cellSize, window.innerWidth - 32),
-              height: Math.min(gridSize * cellSize, window.innerWidth - 32),
+              width: containerSize.width,
+              height: containerSize.height,
               border: "1px solid black",
             }}
           >
@@ -222,10 +242,10 @@ const SnakeGame = () => {
               src={`/assets/img/ecu${headImageIndex + 1}.png`}
               alt="Snake Head"
               className="absolute"
-              width={Math.min(cellSize * 5, window.innerWidth / 4)}
-              height={Math.min(cellSize * 5, window.innerWidth / 4)}
+              width={Math.min(cellSize * 5, containerSize.width / 4)}
+              height={Math.min(cellSize * 5, containerSize.width / 4)}
               style={{
-                left: `${(snake[0].x + numAdditionalCircles / 2) * cellSize}px`,
+                left: `${(snake[0].x + 5) * cellSize}px`,
                 top: `${snake[0].y * cellSize}px`,
               }}
             />
@@ -280,8 +300,8 @@ const SnakeGame = () => {
                 src={`/assets/img/ecu${index + 1}.png`}
                 alt={`Ecu${index + 1}`}
                 className="mx-2"
-                width={Math.min(200, window.innerWidth / 4)}
-                height={Math.min(200, window.innerWidth / 4)}
+                width={Math.min(200, containerSize.width / 4)}
+                height={Math.min(200, containerSize.width / 4)}
               />
             ))}
           </div>
