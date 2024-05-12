@@ -3,7 +3,7 @@ import { Tableone } from "./Tableone";
 
 export function Tableg() {
   return (
-    <div className="flex justify-center items-center flex-col h-full py-20 ">
+    <div className="flex justify-center items-center flex-col h-full py-20 bg-white ">
       <h1
         id="problema"
         className="text-4xl mb-8 font-bold text-orange-500 text-center "
