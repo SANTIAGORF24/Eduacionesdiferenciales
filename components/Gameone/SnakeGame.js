@@ -293,6 +293,14 @@ const SnakeGame = () => {
           )}
         </div>
         <div className="w-full md:w-1/2 flex flex-col items-center">
+          <div className="">
+            <h2 className="text-xl font-bold mb-5">REGLAS</h2>
+            <h2 className="mb-5">MOVIMINETO: A,W,S,D para moverte</h2>
+            <h2 className="mb-5">
+              Se puede mover con las flechas pero recomendamos awsd
+            </h2>
+            <h2 className="mb-5">Ten cuidado el mapa nunca es el mismo</h2>
+          </div>
           <div className="mt-8">
             {Array.from({ length: Math.min(eatenCount, 8) }).map((_, index) => (
               <Image
