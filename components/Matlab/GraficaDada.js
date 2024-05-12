@@ -40,8 +40,14 @@ export function GraficaDada() {
                 Imagen gráfica dada por Matlab
               </ModalHeader>
               <ModalBody>
-                <Image src="/assets/img/Grafica.jpg" alt="Imagen gráfica" />
+                <Image
+                  src="/assets/img/Grafica.jpg"
+                  alt="Imagen gráfica"
+                  width={500}
+                  height={500}
+                />
               </ModalBody>
+
               <ModalFooter>
                 <Button
                   color="error"
