@@ -216,22 +216,27 @@ const SnakeGame = () => {
               width: containerSize.width,
               height: containerSize.height,
               border: "1px solid black",
+              backgroundImage: 'url("/assets/img/selva3.jpg")',
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
             }}
           >
             {snake.map((segment, index) => (
               <div
                 key={index}
-                className="absolute w-6 h-6 bg-green-500 rounded-full"
+                className="absolute w-6 h-6 bg-orange-500 rounded-full"
                 style={{
                   left: `${segment.x * cellSize}px`,
                   top: `${segment.y * cellSize}px`,
                 }}
               />
             ))}
+
             {obstacles.map((obstacle, index) => (
               <div
                 key={index}
-                className="absolute w-6 h-6 bg-red-500"
+                className="absolute w-6 h-6 bg-red-700"
                 style={{
                   left: `${obstacle.x * cellSize}px`,
                   top: `${obstacle.y * cellSize}px`,
