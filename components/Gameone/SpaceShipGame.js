@@ -18,6 +18,7 @@ const SpaceShipGame = () => {
   const [canShootEnemyBullet, setCanShootEnemyBullet] = useState(true);
   const [gameOver, setGameOver] = useState(false);
   const [enemyImage, setEnemyImage] = useState("/assets/img/ecu1.png");
+  const [playerImage, setPlayerImage] = useState("/assets/img/nave.png"); // Nueva imagen para el jugador
 
   useEffect(() => {
     if (score >= 5 && score < 10) {
@@ -208,74 +209,87 @@ const SpaceShipGame = () => {
 
   return (
     <div className="w-full flex items-center justify-center py-10">
-      <div className="relative w-4/6 h-screen flex justify-center items-center bg-black">
-        {!gameStarted && !gameOver && (
-          <button
-            onClick={startGame}
-            className="absolute bg-blue-500 text-white px-4 py-2 rounded"
-          >
-            Jugar
-          </button>
-        )}
-        {gameOver && (
-          <div className="absolute bg-red-500 text-white px-4 py-2 rounded">
-            {score < 50 ? (
-              <React.Fragment>
-                Perdiste
-                <button
-                  onClick={resetGame}
-                  className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
-                >
-                  Jugar de nuevo
-                </button>
-              </React.Fragment>
-            ) : (
-              <div>
-                ¡Has ganado!
-                <button
-                  onClick={playAgain}
-                  className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
-                >
-                  Jugar de nuevo
-                </button>
-              </div>
-            )}
-          </div>
-        )}
-        {gameStarted && (
-          <div className="absolute top-0 left-0 text-white m-4">
-            Vida: {playerHealth}
-          </div>
-        )}
-        <img
-          src={enemyImage}
-          alt="Enemy"
-          className="absolute w-50 h-auto"
-          style={{ left: `${enemyPosition.x}%`, top: `${enemyPosition.y}%` }}
-        />
+      <div className="relative w-4/6 h-96 flex justify-center items-center bg-black">
         <div
-          className="absolute bg-white w-5 h-20"
-          style={{ left: `${playerPosition.x}%`, top: `${playerPosition.y}%` }}
-        />
-        {bullets.map((bullet, index) => (
-          <div
-            key={index}
-            className="absolute bg-yellow-400 w-1 h-1"
-            style={{ left: `${bullet.x}%`, top: `${bullet.y}%` }}
+          className="absolute w-full h-full"
+          style={{
+            backgroundImage: `url(/assets/img/cielo.jpg)`,
+            backgroundSize: "cover",
+          }}
+        >
+          {!gameStarted && !gameOver && (
+            <button
+              onClick={startGame}
+              className="absolute bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Jugar
+            </button>
+          )}
+          {gameOver && (
+            <div className="absolute bg-red-500 text-white px-4 py-2 rounded">
+              {score < 50 ? (
+                <React.Fragment>
+                  Perdiste
+                  <button
+                    onClick={resetGame}
+                    className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
+                  >
+                    Jugar de nuevo
+                  </button>
+                </React.Fragment>
+              ) : (
+                <div>
+                  ¡Has ganado!
+                  <button
+                    onClick={playAgain}
+                    className="ml-4 bg-blue-500 text-white px-4 py-2 rounded"
+                  >
+                    Jugar de nuevo
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+          {gameStarted && (
+            <div className="absolute top-0 left-0 text-white m-4">
+              Vida: {playerHealth}
+            </div>
+          )}
+          <img
+            src={enemyImage}
+            alt="Enemy"
+            className="absolute w-50 h-auto"
+            style={{ left: `${enemyPosition.x}%`, top: `${enemyPosition.y}%` }}
           />
-        ))}
-        {enemyBullets.map((bullet, index) => (
-          <div
-            key={index}
-            className="absolute bg-green-400 w-1 h-1"
-            style={{ left: `${bullet.x}%`, top: `${bullet.y}%` }}
+          <img
+            src={playerImage}
+            alt="Player"
+            className="absolute w-20 h-auto"
+            style={{
+              left: `${playerPosition.x}%`,
+              top: `${playerPosition.y}%`,
+            }}
           />
-        ))}
-        {gameStarted && (
-          <div className="absolute top-0 right-0 text-white m-4">
-            Puntuación: {score}
-          </div>
-        )}
+          {bullets.map((bullet, index) => (
+            <div
+              key={index}
+              className="absolute bg-yellow-400 w-2 h-2"
+              style={{ left: `${bullet.x}%`, top: `${bullet.y}%` }}
+            />
+          ))}
+          {enemyBullets.map((bullet, index) => (
+            <div
+              key={index}
+              className="absolute bg-red-400 w-2 h-2"
+              style={{ left: `${bullet.x}%`, top: `${bullet.y}%` }}
+            />
+          ))}
+          {gameStarted && (
+            <div className="absolute top-0 right-0 text-white m-4">
+              Puntuación: {score}
+            </div>
+          )}
+        </div>
       </div>
       <div className="px-20">
         <h2 className="text-3xl font-bold text-orange-500 mb-20">
