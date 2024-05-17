@@ -297,7 +297,10 @@ const SpaceShipGame = () => {
   ]);
 
   return (
-    <div className="w-full flex items-center justify-center py-10">
+    <div
+      id="DiferencialSpace"
+      className="w-full flex items-center justify-center py-10"
+    >
       <div className="relative w-4/6 h-96 flex justify-center items-center bg-black">
         <div
           className="absolute w-full h-full"

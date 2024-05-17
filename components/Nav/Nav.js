@@ -38,13 +38,28 @@ export function Nav() {
             Grafica
           </Link>
         </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex ">
+        <NavbarItem>
           <Link href="#ecuaciones" className="text-orange-500">
             Ecuaciones
           </Link>
         </NavbarItem>
+        <NavbarItem>
+          <Link href="#laplace" className="text-orange-500">
+            Laplace
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#DiferencialSnake" className="text-orange-500">
+            DiferencialSnake
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="#DiferencialSpace" className="text-orange-500">
+            DiferencialSpace
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent justify="end">
         <NavbarItem>
           <Button as={Link} color="warning" href="#resultados" variant="flat">
             Resultados

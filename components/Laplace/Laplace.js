@@ -10,7 +10,7 @@ const Laplace = () => {
       <h1 className="text-orange-500 text-3xl font-bold mb-8">
         Método Laplace
       </h1>
-      <div className="flex flex-row flex-wrap">
+      <div id="laplace" className="flex flex-row flex-wrap">
         <div className="w-full md:w-1/2 p-4">
           <div className="flex flex-col items-center justify-center">
             <div className="mt-8 flex flex-col items-center justify-center">

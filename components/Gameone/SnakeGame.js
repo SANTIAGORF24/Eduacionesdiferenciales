@@ -205,7 +205,7 @@ const SnakeGame = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto w-full">
+    <div id="DiferencialSnake" className="max-w-7xl mx-auto w-full">
       <div className="flex flex-col items-center justify-center w-full py-10 md:flex-row">
         <div className="w-full md:w-1/2">
           <div className="mb-8 text-4xl font-bold text-orange-500">
