@@ -18,7 +18,7 @@ const Ecuaciones = () => {
         <div className="text-center mb-8 sm:mb-0">
           <h2 className="text-2xl font-bold mb-4">ECUACION DIFERENCIAL</h2>
           <div className=" items-center justify-center mb-4">
-            <BlockMath math="\\frac{dT}{dt} = k(T - T_m)" />
+            <BlockMath math="\frac{dT}{dt} = k(T - T_m)" />
             <Infobot />
           </div>
           <ol className="list-none p-0">
@@ -28,12 +28,12 @@ const Ecuaciones = () => {
                 Donde: <BlockMath math="T_m = 20.3" />
               </p>
               <p>
-                Remplazamos: <BlockMath math="\\frac{dT}{dt} = k(T - 20.3)" />
+                Remplazamos: <BlockMath math="\frac{dT}{dt} = k(T - 20.3)" />
               </p>
               <p className="font-bold mb-4">Solucion a la ecuacion:</p>
-              <BlockMath math="\\int \\frac{dT}{T-20.3} dt = \\int k dt" />
-              <BlockMath math="\\ln|T-20.3| = kt + c" />
-              <BlockMath math="T-20.3 = e^{kt} \\cdot e^c" />
+              <BlockMath math="\int \frac{dT}{T-20.3} dt = \int k dt" />
+              <BlockMath math="\ln|T-20.3| = kt + c" />
+              <BlockMath math="T-20.3 = e^{kt} \cdot e^c" />
               <BlockMath math="T(t) = ce^{kt} + 20.3" />
               <p className="font-bold mb-4">
                 Ecuación temperatura respecto al tiempo T(t):
@@ -54,21 +54,21 @@ const Ecuaciones = () => {
               para entender la relación dinámica entre la temperatura de la
               gelatina líquida y el tiempo. Al ser negativa, indica una
               disminución constante en la temperatura a medida que el tiempo
-              avanza. Este fenomeno puede interpretarse como una característica
+              avanza. Este fenómeno puede interpretarse como una característica
               del proceso de enfriamiento de la gelatina líquida debido al
               contacto con el ambiente, donde la sustancia tiende a equilibrarse
-              termicamente con su entorno a una velocidad decrecientes.
+              térmicamente con su entorno a una velocidad decreciente.
               <br />
               <br />
             </p>
             <p className="text-2xl">
-              La magnitud de k, en este caso, -0.032, ofrece informacion
-              adicional. Una constante k más grande implicaria una tasa de
-              enfriamiento más rapida, mientras que un valor mas pequeño
-              indicaria un enfriamiento más lento. En este contexto, el valor
-              negativo sugiere que la gelatina liquida tiende a enfriarse con el
+              La magnitud de k, en este caso, -0.032, ofrece información
+              adicional. Una constante k más grande implicaría una tasa de
+              enfriamiento más rápida, mientras que un valor más pequeño
+              indicaría un enfriamiento más lento. En este contexto, el valor
+              negativo sugiere que la gelatina líquida tiende a enfriarse con el
               tiempo, lo cual se evidencia con las observaciones experimentales
-              de la disminucion progresiva de la temperatura.
+              de la disminución progresiva de la temperatura.
             </p>
           </div>
         </div>

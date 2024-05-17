@@ -13,6 +13,7 @@ import Footer from "@/components/Footer/Footer";
 import { Mathlan } from "@/components/Matlab/Mathlan";
 import SnakeGame from "@/components/Gameone/SnakeGame";
 import SpaceShipGame from "@/components/Gameone/SpaceShipGame";
+import Laplace from "@/components/Laplace/Laplace";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <Sliderpreguntas />
       <Resultados />
       <Mathlan />
+      <Laplace />
       <SpaceShipGame />
       <Footer />
     </>
