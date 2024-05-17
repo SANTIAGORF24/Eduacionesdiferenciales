@@ -225,7 +225,7 @@ const SnakeGame = () => {
             {snake.map((segment, index) => (
               <div
                 key={index}
-                className="absolute w-6 h-6 bg-orangen-500 rounded-full"
+                className="absolute w-6 h-6 bg-orange-500 rounded-full"
                 style={{
                   left: `${segment.x * cellSize}px`,
                   top: `${segment.y * cellSize}px`,

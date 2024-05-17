@@ -17,29 +17,72 @@ const SpaceShipGame = () => {
   const [enemySpeed, setEnemySpeed] = useState(1);
   const [canShootEnemyBullet, setCanShootEnemyBullet] = useState(true);
   const [gameOver, setGameOver] = useState(false);
-  const [enemyImage, setEnemyImage] = useState("/assets/img/ecu1.png");
+  const [enemyImage, setEnemyImage] = useState("/assets/img/place1.png");
   const [playerImage, setPlayerImage] = useState("/assets/img/nave.png"); // Nueva imagen para el jugador
 
   useEffect(() => {
     if (score >= 5 && score < 10) {
-      setEnemyImage("/assets/img/ecu2.png");
+      setEnemyImage("/assets/img/place2.png");
     } else if (score >= 10 && score < 15) {
-      setEnemyImage("/assets/img/ecu3.png");
+      setEnemyImage("/assets/img/place3.png");
     } else if (score >= 15 && score < 20) {
-      setEnemyImage("/assets/img/ecu4.png");
+      setEnemyImage("/assets/img/place4.png");
     } else if (score >= 20 && score < 25) {
-      setEnemyImage("/assets/img/ecu5.png");
+      setEnemyImage("/assets/img/place5.png");
     } else if (score >= 25 && score < 30) {
-      setEnemyImage("/assets/img/ecu6.png");
+      setEnemyImage("/assets/img/place6.png");
     } else if (score >= 30 && score < 35) {
-      setEnemyImage("/assets/img/ecu7.png");
+      setEnemyImage("/assets/img/place7.png");
     } else if (score >= 35 && score < 40) {
-      setEnemyImage("/assets/img/ecu8.png");
+      setEnemyImage("/assets/img/place8.png");
+    } else if (score >= 40 && score < 45) {
+      setEnemyImage("/assets/img/place9.png");
+    } else if (score >= 45 && score < 50) {
+      setEnemyImage("/assets/img/place10.png");
+    } else if (score >= 50 && score < 55) {
+      setEnemyImage("/assets/img/place11.png");
+    } else if (score >= 55 && score < 60) {
+      setEnemyImage("/assets/img/place12.png");
+    } else if (score >= 60 && score < 65) {
+      setEnemyImage("/assets/img/place13.png");
+    } else if (score >= 65 && score < 70) {
+      setEnemyImage("/assets/img/place14.png");
+    } else if (score >= 70 && score < 75) {
+      setEnemyImage("/assets/img/place15.png");
+    } else if (score >= 75 && score < 80) {
+      setEnemyImage("/assets/img/place16.png");
+    } else if (score >= 80 && score < 85) {
+      setEnemyImage("/assets/img/place17.png");
+    } else if (score >= 85 && score < 90) {
+      setEnemyImage("/assets/img/place18.png");
+    } else if (score >= 90 && score < 95) {
+      setEnemyImage("/assets/img/place19.png");
+    } else if (score >= 95 && score < 100) {
+      setEnemyImage("/assets/img/place20.png");
+    } else if (score >= 100 && score < 105) {
+      setEnemyImage("/assets/img/place21.png");
+    } else if (score >= 105 && score < 110) {
+      setEnemyImage("/assets/img/place22.png");
+    } else if (score >= 110 && score < 115) {
+      setEnemyImage("/assets/img/place23.png");
+    } else if (score >= 115 && score < 120) {
+      setEnemyImage("/assets/img/place24.png");
+    } else if (score >= 120 && score < 125) {
+      setEnemyImage("/assets/img/place25.png");
+    } else if (score >= 125 && score < 130) {
+      setEnemyImage("/assets/img/place26.png");
     }
   }, [score]);
 
   useEffect(() => {
-    if (score >= 50) {
+    if (playerHealth <= -5) {
+      setGameStarted(false);
+      setGameOver(true);
+    }
+  }, [playerHealth]);
+
+  useEffect(() => {
+    if (score >= 130) {
       setGameStarted(false);
       setGameOver(true);
     }
@@ -123,23 +166,48 @@ const SpaceShipGame = () => {
           setCanShootEnemyBullet(false);
           setTimeout(() => {
             setCanShootEnemyBullet(true);
-          }, 3000);
+          }, 2000);
         }
       };
 
       const checkCollisions = () => {
-        bullets.forEach((bullet, index) => {
+        // Colisiones entre balas del jugador y el enemigo
+        bullets.forEach((bullet, bulletIndex) => {
+          const enemyWidth = 50; // Ancho de la imagen del enemigo
+          const enemyHeight = 50; // Alto de la imagen del enemigo
+
+          // Calcula el área del hitbox del enemigo
+          const enemyHitbox = {
+            x: enemyPosition.x,
+            y: enemyPosition.y,
+            width: enemyWidth,
+            height: enemyHeight,
+          };
+
+          // Calcula el área del hitbox de la bala del jugador
+          const bulletHitbox = {
+            x: bullet.x,
+            y: bullet.y,
+            width: 5, // Ancho de la bala del jugador
+            height: 5, // Alto de la bala del jugador
+          };
+
+          // Comprueba la colisión entre la bala del jugador y el enemigo
           if (
-            bullet.x >= enemyPosition.x &&
-            bullet.x <= enemyPosition.x + 5 &&
-            bullet.y >= enemyPosition.y &&
-            bullet.y <= enemyPosition.y + 5
+            bulletHitbox.x < enemyHitbox.x + enemyHitbox.width &&
+            bulletHitbox.x + bulletHitbox.width > enemyHitbox.x &&
+            bulletHitbox.y < enemyHitbox.y + enemyHitbox.height &&
+            bulletHitbox.y + bulletHitbox.height > enemyHitbox.y
           ) {
+            // Incrementa la puntuación del jugador al golpear al enemigo
             setScore((prevScore) => prevScore + 1);
+            // Elimina la bala del jugador
             setBullets((prevBullets) =>
-              prevBullets.filter((_, i) => i !== index)
+              prevBullets.filter((_, index) => index !== bulletIndex)
             );
+            // Reduce la salud del enemigo
             setEnemyHealth((prevHealth) => prevHealth - 1);
+            // Comprueba si el enemigo ha sido derrotado
             if (enemyHealth === 0) {
               moveEnemy();
               setEnemyHealth(10);
@@ -147,28 +215,49 @@ const SpaceShipGame = () => {
           }
           if (bullet.x >= 100) {
             setBullets((prevBullets) =>
-              prevBullets.filter((_, i) => i !== index)
+              prevBullets.filter((_, index) => index !== bulletIndex)
             );
           }
         });
-        enemyBullets.forEach((bullet, index) => {
+
+        // Colisiones entre balas del enemigo y el jugador
+        enemyBullets.forEach((enemyBullet, enemyBulletIndex) => {
+          const playerWidth = 20; // Ancho de la imagen del jugador
+          const playerHeight = 20; // Alto de la imagen del jugador
+
+          // Calcula el área del hitbox del jugador
+          const playerHitbox = {
+            x: playerPosition.x,
+            y: playerPosition.y,
+            width: playerWidth,
+            height: playerHeight,
+          };
+
+          // Calcula el área del hitbox de la bala del enemigo
+          const enemyBulletHitbox = {
+            x: enemyBullet.x,
+            y: enemyBullet.y,
+            width: 5, // Ancho de la bala del enemigo
+            height: 5, // Alto de la bala del enemigo
+          };
+
+          // Comprueba la colisión entre la bala del enemigo y el jugador
           if (
-            bullet.x >= playerPosition.x &&
-            bullet.x <= playerPosition.x + 5 &&
-            bullet.y >= playerPosition.y &&
-            bullet.y <= playerPosition.y + 5
+            enemyBulletHitbox.x < playerHitbox.x + playerHitbox.width &&
+            enemyBulletHitbox.x + enemyBulletHitbox.width > playerHitbox.x &&
+            enemyBulletHitbox.y < playerHitbox.y + playerHitbox.height &&
+            enemyBulletHitbox.y + enemyBulletHitbox.height > playerHitbox.y
           ) {
+            // Reduce la vida del jugador al ser golpeado por una bala del enemigo
             setPlayerHealth((prevHealth) => prevHealth - 1);
-            if (playerHealth === 0) {
-              handleGameOver();
-            }
-          }
-          if (bullet.x <= 0) {
+            // Elimina la bala del enemigo
             setEnemyBullets((prevBullets) =>
-              prevBullets.filter((_, i) => i !== index)
+              prevBullets.filter((_, index) => index !== enemyBulletIndex)
             );
           }
         });
+
+        // Resto del código de colisiones...
       };
 
       const handleGameOver = () => {
@@ -181,7 +270,7 @@ const SpaceShipGame = () => {
         checkCollisions();
         moveEnemy();
         shootEnemyBullet();
-      }, 100);
+      }, 50);
 
       document.addEventListener("keydown", handleKeyDown);
 
