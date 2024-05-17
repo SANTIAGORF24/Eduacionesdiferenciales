@@ -14,6 +14,7 @@ import { Mathlan } from "@/components/Matlab/Mathlan";
 import SnakeGame from "@/components/Gameone/SnakeGame";
 import SpaceShipGame from "@/components/Gameone/SpaceShipGame";
 import Laplace from "@/components/Laplace/Laplace";
+import { Matlab } from "@/components/Matlab/Matlab";
 
 export default function Home() {
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       <Mathlan />
       <Laplace />
       <SpaceShipGame />
+      <Matlab />
       <Footer />
     </>
   );
