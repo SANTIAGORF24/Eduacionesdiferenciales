@@ -175,7 +175,7 @@ const SnakeGame = () => {
       }
     };
 
-    const interval = setInterval(gameLoop, 100);
+    const interval = setInterval(gameLoop, 70);
     return () => clearInterval(interval);
   }, [
     gameStarted,
