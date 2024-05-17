@@ -67,7 +67,8 @@ const SnakeGame = () => {
       newObstacles.some(
         (obstacle) =>
           obstacle.x === newFoodPosition.x && obstacle.y === newFoodPosition.y
-      )
+      ) || // Comprobar si la nueva posición coincide con un obstáculo
+      (food.x === newFoodPosition.x && food.y === newFoodPosition.y) // Comprobar si la nueva posición coincide con la posición anterior de la comida
     ) {
       newFoodPosition = {
         x: Math.floor(Math.random() * gridSize),
