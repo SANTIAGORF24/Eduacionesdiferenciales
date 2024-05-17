@@ -82,7 +82,7 @@ const SpaceShipGame = () => {
   }, [playerHealth]);
 
   useEffect(() => {
-    if (score >= 130) {
+    if (score >= 135) {
       setGameStarted(false);
       setGameOver(true);
     }
@@ -395,7 +395,8 @@ const SpaceShipGame = () => {
           El bloqueo de mayúsculas debe estar desactivado
         </h2>
 
-        <h2 className="mb-5">Debes llegar a 50 puntos</h2>
+        <h2 className="mb-5">Debes llegar a 135 puntos</h2>
+        <h2 className="mb-5">Pierdes si te dan 10 veces</h2>
       </div>
     </div>
   );
