@@ -14,6 +14,7 @@ export function Banner() {
               alt="NextUI hero Image with delay"
               src="/assets/img/ecua.jpg"
             />
+                  {/* Título con animación de fade in y slide up */}
           </div>
           <div className="text-center md:text-left">
             <div>
